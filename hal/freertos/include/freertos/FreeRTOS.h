@@ -616,6 +616,14 @@ typedef portBASE_TYPE (*pdTASK_HOOK_CODE)( void * );
 
 /* For backward compatability. */
 #define eTaskStateGet eTaskGetState
+#define xListItem                     ListItem_t
+#define xList                         List_t
+#define xTaskHandle                   TaskHandle_t
+#define xTimeOutType                  TimeOut_t
+#define xQueueHandle                  QueueHandle_t
+#define portTICK_PERIOD_MS            portTICK_RATE_MS
+#define xMiniListItem 				  MiniListItem_t
+#define xSemaphoreHandle              SemaphoreHandle_t
 
 #endif /* INC_FREERTOS_H */
 

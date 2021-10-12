@@ -138,4 +138,6 @@ to exclude the API function. */
 #define INCLUDE_eTaskGetState               1
 #define INCLUDE_xTaskGetSchedulerState		1
 
+#include "trcRecorder.h" /* Should be in the end, after the #define. */
+
 #endif /* FREERTOS_CONFIG_H */
