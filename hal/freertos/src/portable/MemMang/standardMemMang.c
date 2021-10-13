@@ -14,6 +14,7 @@
 
 //Used for heap size estimate
 static int heapBytesRemaining=0;
+static int minheapBytesEverRemaining=-1;
 
 void *pvPortMalloc( size_t xSize ) {
 	return malloc(xSize);
@@ -30,6 +31,11 @@ void vPortInitialiseBlocks( void ) {
 size_t xPortGetFreeHeapSize( void ) {
 	//This gives a rough estimate of how much heap space is used
 	return heapBytesRemaining;
+}
+
+size_t xPortGetMinimumEverFreeHeapSize( void ) {
+	//This gives a rough estimate of how much min heap size was ever left
+	return minheapBytesEverRemaining;
 }
 
 void *_sbrk(ptrdiff_t increment) {
@@ -65,6 +71,10 @@ void *_sbrk(ptrdiff_t increment) {
 	void * old_heap_pos = cur_heap_pos;
 	cur_heap_pos += increment;
 	heapBytesRemaining -= increment;
+	if(minheapBytesEverRemaining<0)
+		minheapBytesEverRemaining = heapBytesRemaining;
+	else if(heapBytesRemaining<minheapBytesEverRemaining)
+		minheapBytesEverRemaining = heapBytesRemaining;
 	xTaskResumeAll();
 	return old_heap_pos;
 }
