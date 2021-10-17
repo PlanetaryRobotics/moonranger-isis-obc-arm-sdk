@@ -118,13 +118,6 @@ extern "C" {
 	typedef unsigned portLONG portTickType;
 	#define portMAX_DELAY ( portTickType ) 0xffffffff
 #endif
-
-typedef portSTACK_TYPE StackType_t;
-typedef long BaseType_t;
-typedef unsigned long UBaseType_t;
-
-typedef unsigned long TickType_t;
-
 /*-----------------------------------------------------------*/	
 
 /* Architecture specifics. */
