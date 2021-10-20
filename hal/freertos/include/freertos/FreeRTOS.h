@@ -614,8 +614,40 @@ typedef portBASE_TYPE (*pdTASK_HOOK_CODE)( void * );
 	#define portASSERT_IF_INTERRUPT_PRIORITY_INVALID()
 #endif
 
-/* For backward compatability. */
+#ifndef configSUPPORT_DYNAMIC_ALLOCATION
+	#define configSUPPORT_DYNAMIC_ALLOCATION    1
+#endif
+
+#ifndef configSTACK_DEPTH_TYPE
+
+/* Defaults to uint16_t for backward compatibility, but can be overridden
+ * in FreeRTOSConfig.h if uint16_t is too restrictive. */
+    #define configSTACK_DEPTH_TYPE    uint16_t
+#endif
+
+
+/* For forward compatability. */
 #define eTaskStateGet eTaskGetState
+
+#define TickType_t					  portTickType                  
+#define TaskHandle_t				  xTaskHandle                   
+//#define QueueHandle_t                 xQueueHandle                  
+//#define SemaphoreHandle_t             xSemaphoreHandle              
+//#define QueueSetHandle_t    		  xQueueSetHandle               
+//#define QueueSetMemberHandle_t		  xQueueSetMemberHandle         
+//#define TimeOut_t					  xTimeOutType                  
+//#define MemoryRegion_t				  xMemoryRegion                 
+//#define TaskParameters_t			  xTaskParameters               
+//#define TaskStatus_t 				  xTaskStatusType               
+//#define TimerHandle_t   			  xTimerHandle                  
+//#define CoRoutineHandle_t			  xCoRoutineHandle              
+//#define TaskHookFunction_t 			  pdTASK_HOOK_CODE              
+#define portTICK_PERIOD_MS			  portTICK_RATE_MS              
+//#define pcTaskGetName				  pcTaskGetTaskName             
+//#define pcTimerGetName				  pcTimerGetTimerName           
+//#define pcQueueGetName				  pcQueueGetQueueName           
+//#define vTaskGetInfo		          vTaskGetTaskInfo              
+//#define ulTaskGetIdleRunTimeCounter	  xTaskGetIdleRunTimeCounter    
 
 #endif /* INC_FREERTOS_H */
 
