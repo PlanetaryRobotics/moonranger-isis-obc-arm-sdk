@@ -128,6 +128,36 @@ typedef xQueueHandle xSemaphoreHandle;
 
 /**
  * semphr. h
+ * @code{c}
+ * SemaphoreHandle_t xSemaphoreCreateBinary( void );
+ * @endcode
+ *
+ * Creates a new binary semaphore instance, and returns a handle by which the
+ * new semaphore can be referenced.
+ *
+ *
+ * The old vSemaphoreCreateBinary() macro is now deprecated in favour of this
+ * xSemaphoreCreateBinary() function.  Note that binary semaphores created using
+ * the vSemaphoreCreateBinary() macro are created in a state such that the
+ * first call to 'take' the semaphore would pass, whereas binary semaphores
+ * created using xSemaphoreCreateBinary() are created in a state such that the
+ * the semaphore must first be 'given' before it can be 'taken'.
+ *
+ *
+ * @return Handle to the created semaphore, or NULL if the memory required to
+ * hold the semaphore's data structures could not be allocated.
+ *
+
+ * @endcode
+ * \defgroup xSemaphoreCreateBinary xSemaphoreCreateBinary
+ * \ingroup Semaphores
+ */
+
+#define xSemaphoreCreateBinary()    xQueueGenericCreate( ( UBaseType_t ) 1, semSEMAPHORE_QUEUE_ITEM_LENGTH, queueQUEUE_TYPE_BINARY_SEMAPHORE )
+
+
+/**
+ * semphr. h
  * <pre>xSemaphoreTake( 
  *                   xSemaphoreHandle xSemaphore, 
  *                   portTickType xBlockTime 
