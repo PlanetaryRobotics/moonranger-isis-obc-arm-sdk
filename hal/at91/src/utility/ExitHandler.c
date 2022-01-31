@@ -14,7 +14,11 @@
 
 #define RSTC_KEY_PASSWORD       (0xA5 << 24)
 
+#ifdef UNIT_TESTING
+void gracefulReset();
+#else
 void gracefulReset() __attribute__ ((long_call, section (".sramfunc")));
+#endif
 
 /*!
  * @brief Disables the Instruction and Data caches of the ARM926EJ-S core.

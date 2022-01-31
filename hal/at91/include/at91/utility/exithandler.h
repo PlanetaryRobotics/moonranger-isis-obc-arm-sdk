@@ -33,6 +33,10 @@ void restartDataAbort(); // Only called by Data Abort Handler
  * This function must be located in the SRAM0 because it shuts down the SDRAM!
  * This is done by placing it in the sramfunc section.
  */
+#ifdef UNIT_TESTING
+void gracefulReset();
+#else
 void gracefulReset() __attribute__ ((long_call, section (".sramfunc")));
+#endif
 
 #endif /* EXITHANDLER_H_ */
