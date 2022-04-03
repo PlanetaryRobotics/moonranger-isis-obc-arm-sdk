@@ -45,7 +45,7 @@ extern "C" {
  * See trcHardwarePort.h for available ports and information on how to
  * define your own port, if not already present.
  ******************************************************************************/
-#define TRC_CFG_HARDWARE_PORT TRC_HARDWARE_PORT_HWIndependent
+#define TRC_CFG_HARDWARE_PORT TRC_HARDWARE_PORT_Atmel_AT91SAM7
 
 /*******************************************************************************
  * Configuration Macro: TRC_CFG_RECORDER_MODE
@@ -100,7 +100,7 @@ extern "C" {
  *
  * Default value is 0 (= include additional events).
  ******************************************************************************/
-#define TRC_CFG_SCHEDULING_ONLY 0
+#define TRC_CFG_SCHEDULING_ONLY 1
 
  /******************************************************************************
  * TRC_CFG_INCLUDE_MEMMANG_EVENTS
