@@ -10,7 +10,7 @@
 
 #include "hal/boolean.h"
 #include <at91/commons.h>
-#include <freertos/FreeRTOS.h>
+#include <FreeRTOS.h>
 
 /*!
  * @brief Describes the I2C Slave Driver state.

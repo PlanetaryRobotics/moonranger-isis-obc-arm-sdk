@@ -18,8 +18,8 @@
 
 #else
 
-#include <freertos/FreeRTOS.h>
-#include <freertos/semphr.h>
+#include <FreeRTOS.h>
+#include <semphr.h>
 
 #endif
 

@@ -8,7 +8,7 @@
 #ifndef ADC_H_
 #define ADC_H_
 
-#include <freertos/FreeRTOS.h>
+#include <FreeRTOS.h>
 #include <at91/commons.h>
 #include "hal/boolean.h"
 

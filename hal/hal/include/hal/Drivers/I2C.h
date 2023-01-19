@@ -11,9 +11,9 @@
 #define I2C_H_
 
 #include <at91/commons.h>
-#include <freertos/FreeRTOS.h>
-#include <freertos/semphr.h>
-#include <freertos/task.h>
+#include <FreeRTOS.h>
+#include <semphr.h>
+#include <task.h>
 
 /*!
  * State of the Driver.
